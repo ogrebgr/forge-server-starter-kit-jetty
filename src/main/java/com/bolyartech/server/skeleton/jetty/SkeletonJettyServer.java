@@ -15,8 +15,6 @@ public class SkeletonJettyServer extends ForgeJetty {
     }
 
 
-
-
     public static void main(String[] args) {
         SkeletonJettyServer server = new SkeletonJettyServer(new ForgeJettyConfigurationLoaderImpl());
         server.start();
