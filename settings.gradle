@@ -30,3 +30,6 @@ project(':forge-server-mod-user-facebook').projectDir=new File("$settingsDir/../
 
 include ':forge-server-mod-user-google'
 project(':forge-server-mod-user-google').projectDir=new File("$settingsDir/../forge-server-modules/forge-server-mod-user-google")
+
+include ':forge-server-tple-freemarker'
+project(':forge-server-tple-freemarker').projectDir=new File("$settingsDir/../forge-server-tple-freemarker")
