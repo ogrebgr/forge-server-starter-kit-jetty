@@ -10,7 +10,7 @@ include ':forge-server-skeleton'
 project(':forge-server-skeleton').projectDir=new File("$settingsDir/../forge-server-skeleton")
 
 include ':forge-server-tple-velocity'
-project(':forge-server-tple-velocity').projectDir=new File("$settingsDir/../forge-server-tple-velocity")
+project(':forge-server-tple-velocity').projectDir=new File("$settingsDir/../tples/forge-server-tple-velocity")
 
 include ':forge-server-mod-user'
 project(':forge-server-mod-user').projectDir=new File("$settingsDir/../forge-server-modules/forge-server-mod-user")
@@ -31,26 +31,3 @@ project(':forge-server-mod-user-facebook').projectDir=new File("$settingsDir/../
 include ':forge-server-mod-user-google'
 project(':forge-server-mod-user-google').projectDir=new File("$settingsDir/../forge-server-modules/forge-server-mod-user-google")
 
-include ':forge-server-tple-freemarker'
-project(':forge-server-tple-freemarker').projectDir=new File("$settingsDir/../forge-server-tple-freemarker")
-
-include ':forge-server-tple-mustache'
-project(':forge-server-tple-mustache').projectDir=new File("$settingsDir/../forge-server-tple-mustache")
-
-include ':forge-server-tple-handlebars'
-project(':forge-server-tple-handlebars').projectDir=new File("$settingsDir/../forge-server-tple-handlebars")
-
-include ':forge-server-tple-jade'
-project(':forge-server-tple-jade').projectDir=new File("$settingsDir/../forge-server-tple-jade")
-
-include ':forge-server-tple-thymeleaf'
-project(':forge-server-tple-thymeleaf').projectDir=new File("$settingsDir/../forge-server-tple-thymeleaf")
-
-include ':forge-server-tple-jetbrick'
-project(':forge-server-tple-jetbrick').projectDir=new File("$settingsDir/../forge-server-tple-jetbrick")
-
-include ':forge-server-tple-pebble'
-project(':forge-server-tple-pebble').projectDir=new File("$settingsDir/../forge-server-tple-pebble")
-
-include ':forge-server-tple-jtwig'
-project(':forge-server-tple-jtwig').projectDir=new File("$settingsDir/../forge-server-tple-jtwig")
