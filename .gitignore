@@ -12,3 +12,4 @@
 /src/main/resources/keystore
 logs/*
 conf/
+classes/
