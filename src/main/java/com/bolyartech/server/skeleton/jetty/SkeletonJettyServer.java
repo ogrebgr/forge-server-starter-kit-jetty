@@ -18,8 +18,8 @@ public class SkeletonJettyServer extends ForgeJetty {
     private static final org.slf4j.Logger mLogger = LoggerFactory.getLogger(SkeletonJettyServer.class);
 
 
-    public SkeletonJettyServer(ForgeJettyConfiguration forgeJettyConfiguration) {
-        super(forgeJettyConfiguration);
+    public SkeletonJettyServer(ForgeJettyConfiguration forgeJettyConfiguration, HttpServlet mainServlet) {
+        super(forgeJettyConfiguration, mainServlet);
     }
 
 
@@ -30,7 +30,8 @@ public class SkeletonJettyServer extends ForgeJetty {
             ForgeJettyConfigurationLoader loader = new ForgeJettyConfigurationLoaderFile(jettyConfigPath);
 
             try {
-                SkeletonJettyServer server = new SkeletonJettyServer(loader.load());
+                ForgeJettyConfiguration conf = loader.load();
+                SkeletonJettyServer server = new SkeletonJettyServer(conf, createMainServlet(conf.getConfigDir()));
                 server.start();
             } catch (ForgeConfigurationException e) {
                 throw new IllegalStateException(e);
@@ -41,7 +42,7 @@ public class SkeletonJettyServer extends ForgeJetty {
     }
 
 
-    public HttpServlet createMainServlet(String configDir) {
+    private static HttpServlet createMainServlet(String configDir) {
         FileForgeServerConfigurationLoader forgeConfigLoader = new FileForgeServerConfigurationLoader(configDir);
         DbConfigurationLoader dbConfigurationLoader = new FileDbConfigurationLoader(configDir);
         try {
