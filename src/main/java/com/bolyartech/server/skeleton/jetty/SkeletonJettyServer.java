@@ -1,6 +1,6 @@
 package com.bolyartech.server.skeleton.jetty;
 
-import com.bolyartech.forge.server.SkeletonMainServlet;
+import com.bolyartech.forge.server.SkeletonBaseServlet;
 import com.bolyartech.forge.server.config.FileForgeServerConfigurationLoader;
 import com.bolyartech.forge.server.config.ForgeConfigurationException;
 import com.bolyartech.forge.server.db.DbConfigurationLoader;
@@ -46,7 +46,7 @@ public class SkeletonJettyServer extends ForgeJetty {
         FileForgeServerConfigurationLoader forgeConfigLoader = new FileForgeServerConfigurationLoader(configDir);
         DbConfigurationLoader dbConfigurationLoader = new FileDbConfigurationLoader(configDir);
         try {
-            return new SkeletonMainServlet(forgeConfigLoader.load().getStaticFilesDir(), dbConfigurationLoader.load());
+            return new SkeletonBaseServlet(forgeConfigLoader.load().getStaticFilesDir(), dbConfigurationLoader.load());
         } catch (ForgeConfigurationException e) {
             throw new IllegalStateException(e);
         }
