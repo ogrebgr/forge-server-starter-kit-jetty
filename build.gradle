@@ -1,4 +1,4 @@
-group 'com.bolyartech.server.skeleton'
+group 'com.bolyartech.server.skit'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
@@ -13,7 +13,7 @@ repositories {
 
 dependencies {
     compile project(':forge-server-jetty')
-    compile project(':forge-server-skeleton')
+    compile project(':forge-server-starter-kit')
 
     compile 'org.slf4j:slf4j-api:1.7.21'
     compile 'ch.qos.logback:logback-classic:0.9.26'
@@ -23,7 +23,7 @@ dependencies {
 
 task fatJar(type: Jar) {
     manifest {
-        attributes 'Main-Class': 'com.bolyartech.server.skeleton.jetty.SkeletonJettyServer'
+        attributes 'Main-Class': 'com.bolyartech.server.skit.jetty.StarterKitServer'
     }
     baseName = project.name + '-all'
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }

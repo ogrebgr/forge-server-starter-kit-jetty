@@ -1,4 +1,4 @@
-rootProject.name = 'FSS Jetty'
+rootProject.name = 'FSSK Jetty'
 
 include ':forge-server'
 project(':forge-server').projectDir=new File("$settingsDir/../forge-server")
@@ -6,8 +6,8 @@ project(':forge-server').projectDir=new File("$settingsDir/../forge-server")
 include ':forge-server-jetty'
 project(':forge-server-jetty').projectDir=new File("$settingsDir/../forge-server-jetty")
 
-include ':forge-server-skeleton'
-project(':forge-server-skeleton').projectDir=new File("$settingsDir/../forge-server-skeleton")
+include ':forge-server-starter-kit'
+project(':forge-server-starter-kit').projectDir=new File("$settingsDir/../forge-server-starter-kit")
 
 include ':forge-server-tple-velocity'
 project(':forge-server-tple-velocity').projectDir=new File("$settingsDir/../tples/forge-server-tple-velocity")

@@ -1,2 +1,4 @@
-# forge-server-skeleton-jetty
-Jetty runner for Forge server skeleton project
+# forge-server-starter-kit-jetty
+
+Jetty runner for Forge Server Starter Kit
+

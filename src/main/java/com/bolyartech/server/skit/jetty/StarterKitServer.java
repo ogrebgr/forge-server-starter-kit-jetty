@@ -1,4 +1,4 @@
-package com.bolyartech.server.skeleton.jetty;
+package com.bolyartech.server.skit.jetty;
 
 import com.bolyartech.forge.server.BaseServletDefaultImpl;
 import com.bolyartech.forge.server.config.FileForgeServerConfigurationLoader;
@@ -16,18 +16,20 @@ import com.bolyartech.forge.server.module.user_facebook.FacebookUserModule;
 import com.bolyartech.forge.server.module.user_google.GoogleUserModule;
 import com.bolyartech.forge.server.module.user_scram.UserScramModule;
 import com.bolyartech.forge.server.modules.main.MainModule;
+import com.google.common.base.Strings;
 import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.HttpServlet;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class SkeletonJettyServer extends ForgeJetty {
-    private static final org.slf4j.Logger logger = LoggerFactory.getLogger(SkeletonJettyServer.class);
+public class StarterKitServer extends ForgeJetty {
+    private static final org.slf4j.Logger logger = LoggerFactory.getLogger(StarterKitServer.class);
 
 
-    public SkeletonJettyServer(ForgeJettyConfiguration forgeJettyConfiguration, HttpServlet mainServlet) {
+    public StarterKitServer(ForgeJettyConfiguration forgeJettyConfiguration, HttpServlet mainServlet) {
         super(forgeJettyConfiguration, mainServlet);
     }
 
@@ -40,7 +42,14 @@ public class SkeletonJettyServer extends ForgeJetty {
 
             try {
                 ForgeJettyConfiguration conf = loader.load();
-                SkeletonJettyServer server = new SkeletonJettyServer(conf, createBaseServlet(conf.getConfigDir()));
+                String confDir;
+                if (Strings.isNullOrEmpty(conf.getConfigDir()) || conf.getConfigDir().equals(".")) {
+                    File tmp = new File(jettyConfigPath);
+                    confDir = tmp.getParent();
+                } else {
+                    confDir = conf.getConfigDir();
+                }
+                StarterKitServer server = new StarterKitServer(conf, createBaseServlet(confDir));
                 server.start();
             } catch (ForgeConfigurationException e) {
                 throw new IllegalStateException(e);
