@@ -9,17 +9,11 @@ import com.bolyartech.forge.server.jetty.ForgeJettyConfiguration;
 import com.bolyartech.forge.server.jetty.ForgeJettyConfigurationLoader;
 import com.bolyartech.forge.server.jetty.ForgeJettyConfigurationLoaderFile;
 import com.bolyartech.forge.server.module.HttpModule;
-import com.bolyartech.forge.server.module.admin.AdminModule;
-import com.bolyartech.forge.server.module.user.UserModule;
-import com.bolyartech.forge.server.module.user_blowfish.BlowfishUserModule;
-import com.bolyartech.forge.server.module.user_facebook.FacebookUserModule;
-import com.bolyartech.forge.server.module.user_google.GoogleUserModule;
-import com.bolyartech.forge.server.module.user_scram.UserScramModule;
 import com.bolyartech.forge.server.modules.main.MainModule;
 import com.google.common.base.Strings;
+import jakarta.servlet.http.HttpServlet;
 import org.slf4j.LoggerFactory;
 
-import javax.servlet.http.HttpServlet;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -70,14 +64,8 @@ public class StarterKitServer extends ForgeJetty {
         List<HttpModule> modules = new ArrayList<>();
 
         modules.add(new MainModule(forgeConfigLoader.load().getStaticFilesDir()));
-        modules.add(UserModule.createDefault(dbPool));
-        modules.add(AdminModule.createDefault(dbPool));
-        modules.add(UserScramModule.createDefault(dbPool));
-        modules.add(FacebookUserModule.createDefault(dbPool));
-        modules.add(GoogleUserModule.createDefault(dbPool));
-        modules.add(BlowfishUserModule.createDefault(dbPool));
 
-        return new BaseServletDefaultImpl(modules);
+        return new BaseServletDefaultImpl(modules, true, 5);
     }
 
 

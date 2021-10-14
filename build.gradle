@@ -7,16 +7,12 @@ sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
-    jcenter()
     mavenLocal()
 }
 
 dependencies {
     compile project(':forge-server-jetty')
     compile project(':forge-server-starter-kit')
-
-    compile 'org.slf4j:slf4j-api:1.7.21'
-    compile 'ch.qos.logback:logback-classic:0.9.26'
 
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }
